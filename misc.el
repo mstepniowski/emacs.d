@@ -18,8 +18,22 @@
 ;; Do not pause on redisplay
 (setq redisplay-dont-pause t)
 
-;; Do not make any backup files
+;; Do not make any backup files (ie foo~)
 (setq make-backup-files nil)
+
+;; Put autosave files (ie #foo#) in ~/.emacs.d/
+(defvar auto-save-directory (f-expand "autosaves" user-emacs-directory))
+(setq auto-save-file-name-transforms `((".*" ,(concat auto-save-directory "/") t))
+      auto-save-default t
+      auto-save-timeout 20
+      auto-save-interval 200)
+
+;; create autosave directory if necessary, since emacs won't.
+(make-directory auto-save-directory t)
+
+;; Save file history
+(setq savehist-file "~/.emacs.d/.savehist")
+(savehist-mode 1)
 
 ;; Mute the annoing ring bell
 (setq visible-bell t)
@@ -41,10 +55,6 @@
 (show-paren-mode 1)
 (setq show-paren-style 'mixed)
 (set-face-foreground 'show-paren-mismatch-face "red")
-
-;; Save file history
-(setq savehist-file "~/.emacs.d/.savehist")
-(savehist-mode 1)
 
 ;; Mouse
 (setq mouse-wheel-scroll-amount '(0.01))
@@ -99,12 +109,3 @@
 (setq-default display-buffer-reuse-frames t)
 (set-cursor-color "coral3")
 (setq enable-recursive-minibuffers t)
-
-
-;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
-;; (custom-set-variables
-;;   '(auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/\\1" t)))
-;;   '(backup-directory-alist '((".*" . "~/.emacs.d/backups/"))))
-
-;; ;; create the autosave dir if necessary, since emacs won't.
-;; (make-directory "~/.emacs.d/autosaves/" t)
