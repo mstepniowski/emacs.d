@@ -235,7 +235,7 @@
 
 ;;;; Color theme
 
-(setq custom-theme-directory "~/.emacs.d/themes")
+(setq custom-theme-directory (f-expand "themes" user-emacs-directory))
 (load-theme 'tango t)
 (custom-theme-set-faces 'tango
 			'(default ((t (:background "#ffffff"))))
