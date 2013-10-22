@@ -264,6 +264,9 @@
 (bind-key "C-r" 'isearch-backward-regexp)
 (bind-key "C-M-s" 'isearch-forward)
 (bind-key "C-M-r" 'isearch-backward)
+(bind-key "C-8" (lambda ()
+                  (interactive)
+                  (find-file (f-expand "init.el" user-emacs-directory))))
 
 
 ;;;; Start emacs server automatically
