@@ -253,7 +253,13 @@
 (bind-key "C-k" 'kill-and-join-forward)
 (bind-key "s-/" 'comment-or-uncomment-current-line-or-region)
 (bind-key "C-x C-b" 'ibuffer)
+(bind-key "M-/" 'hippie-expand)
+(bind-key "C-s" 'isearch-forward-regexp)
+(bind-key "C-r" 'isearch-backward-regexp)
+(bind-key "C-M-s" 'isearch-forward)
+(bind-key "C-M-r" 'isearch-backward)
 
+
 ;;;; Start emacs server automatically
 
 (let ((dir (getenv "EOPEN_DIR"))
@@ -263,4 +269,4 @@
   (if file
       (find-file file)))
 
-(server-start)
+(unless (server-running-p) (server-start))
