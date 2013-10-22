@@ -216,13 +216,13 @@
 (use-package go-mode
   :config
   (progn
-	(add-hook 'before-save-hook 'gofmt-before-save)
-	(add-hook 'go-mode-hook (lambda ()
-							  (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
-	(add-hook 'go-mode-hook (lambda ()
-							  (local-set-key (kbd "C-c i") 'go-goto-imports)))))
-	;; (add-hook 'go-mode-hook (lambda ()
-	;;                           (local-set-key (kbd \"M-.\") 'godef-jump)))
+    (setenv "GOROOT" "/usr/local/opt/go")
+    (setenv "GOPATH" "/Users/mstepniowski/Projekty/go")
+    (add-hook 'before-save-hook 'gofmt-before-save)
+    (add-hook 'go-mode-hook (lambda ()
+                              (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)
+                              (local-set-key (kbd "C-c i") 'go-goto-imports)
+                              (local-set-key (kbd "M-.") 'godef-jump)))))
 
 (use-package ack-and-a-half
   :init
