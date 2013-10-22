@@ -5,6 +5,7 @@
 (depends-on "coffee-mode")
 (depends-on "dash")
 (depends-on "diff-hl")
+(depends-on "emmet-mode")
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
 (depends-on "f")

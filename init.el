@@ -158,6 +158,12 @@
   (progn
     (add-hook 'js-mode-hook (lambda () (setq js-indent-level 2)))))
 
+(use-package emmet-mode
+  :init
+  (progn
+    (add-hook 'sgml-mode-hook 'emmet-mode)
+    (add-hook 'css-mode-hook 'emmet-mode)))
+
 (use-package js2-mode
   :mode (("\\.js$" . js2-mode)
          ("Jakefile$" . js2-mode))
