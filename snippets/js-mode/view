@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Backbone.js view
+# key: view
+# --
+var ${1:View} = Backbone.Views.extend({
+    ${2:initialize: function () {
+        $3
+    }}$0
+});

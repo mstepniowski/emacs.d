@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Test
+# key: Test
+# --
+class $1TestCase(${2:TestCase}):
+    ${3:def setUp(self):
+      	super($1TestCase, self).setUp()
+        ${4:pass}}
+
+    ${5:test}$0

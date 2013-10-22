@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Backbone.js collection
+# key: collection
+# --
+
+var ${1:Model}List = Backbone.Collection.extend({
+    model: $1$0
+});

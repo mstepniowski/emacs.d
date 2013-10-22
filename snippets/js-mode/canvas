@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Basic canvas
+# key: canvas
+# --
+var canvas = document.createElement('canvas');
+canvas.width = ${1:500};
+canvas.height = ${2:500};
+var ctx = canvas.getContext('2d');
+$0

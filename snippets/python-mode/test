@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: test
+# key: test
+# contributor: Ryszard Szopa <ryszard.szopa@gmail.com>
+# --
+def test_${2:$
+(let ((underscorized (replace-regexp-in-string "\s+" "_" (replace-regexp-in-string "[^a-z ]" "" (downcase text)))))
+  (if (<= (length underscorized) 65)
+      underscorized
+    (substring underscorized 0 65)))}(self):
+    "${2:$$
+(if (or (< (length yas/text) 76) 
+        (string-match "^\"\".*\"\"$" yas/text))
+    yas/text
+    (format "\"\"%s\"\"" yas/text))}"
+    $0
+

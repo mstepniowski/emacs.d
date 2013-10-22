@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Backbone.js event bind
+# key: bind
+# --
+${1:this}.bind('${2:all}', ${3:this.on${2:$(capitalize (replace-regexp-in-string ":" "" text))}}, $1);

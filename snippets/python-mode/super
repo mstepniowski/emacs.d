@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: super
+# key: super
+# condition: (and (python-class-name))
+# --
+super(`(python-class-name)`, self).${1:`(python-def-name)`($2)}
+$>$0

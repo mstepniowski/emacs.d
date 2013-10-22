@@ -1,0 +1,11 @@
+.DS_Store
+*.elc
+*~
+/autosaves
+/auto-save-list
+/ac-comphist.dat
+/eshell
+/elpa
+/.cask
+/tramp
+/projectile.cache

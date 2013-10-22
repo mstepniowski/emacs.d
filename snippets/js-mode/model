@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Backbone.js model
+# key: model
+# --
+var ${1:Model} = Backbone.Model.extend({
+    ${2:initialize: function () {
+        $3
+    }}$0
+});
