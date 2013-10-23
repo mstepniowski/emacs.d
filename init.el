@@ -39,10 +39,12 @@
       :bind ("M-x" . smex)))
   :config
   (progn
-    (setq ido-case-fold t)
-    (setq ido-enable-prefix nil)
-    (setq ido-create-new-buffer 'always)
-    (setq ido-max-prospects 10)
+    (setq ido-enable-prefix nil
+          ido-enable-flex-matching t
+          ido-case-fold t
+          ido-create-new-buffer 'always
+          ido-use-filename-at-point nil
+          ido-max-prospects 10)
     (add-to-list 'ido-ignore-files "\\.DS_Store")))
 
 (use-package multiple-cursors
