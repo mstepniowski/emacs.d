@@ -45,7 +45,24 @@
           ido-create-new-buffer 'always
           ido-use-filename-at-point nil
           ido-max-prospects 10)
-    (add-to-list 'ido-ignore-files "\\.DS_Store")))
+    (add-to-list 'ido-ignore-files "\\.DS_Store")
+
+    (defun my-ido-tweaks ()
+      (define-key ido-file-completion-map
+        (kbd "~")
+        (lambda ()
+          (interactive)
+          (cond
+           ((looking-back "~/") (insert "Projekty/"))
+           ((looking-back "/") (insert "~/"))
+           (:else (call-interactively 'self-insert-command)))))
+      ;; C-n/p is more intuitive in vertical layout
+      (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+      (define-key ido-completion-map (kbd "<down>") 'ido-next-match)
+      (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)
+      (define-key ido-completion-map (kbd "<up>") 'ido-prev-match))
+
+    (add-hook 'ido-setup-hook 'my-ido-tweaks)))
 
 (use-package multiple-cursors
   :bind (("C->" . mc/mark-next-like-this)
