@@ -19,6 +19,7 @@
 
 ;; Set font
 (set-frame-font "-apple-Mensch-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1")
+(setq default-frame-alist '((font . "-apple-Mensch-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1") (vertical-scroll-bars . nil)))
 
 (defun finder ()
   "Opens file directory in Finder."
