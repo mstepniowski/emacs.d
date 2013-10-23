@@ -205,19 +205,6 @@
   :interpreter (("emacs" . emacs-lisp-mode))
   :mode ("Cask" . emacs-lisp-mode))
 
-;; Faux fullscreen mode
-(use-package maxframe
-  :config
-  (progn
-	(defvar maxframe-maximized-p nil "maxframe is in fullscreen mode")
-	(defun toggle-maxframe ()
-	  "Toggle maximized frame"
-	  (interactive)
-	  (setq maxframe-maximized-p (not maxframe-maximized-p))
-	  (cond (maxframe-maximized-p (maximize-frame))
-			(t (restore-frame))))
-	(global-set-key (kbd "<s-S-return>") 'toggle-maxframe)))
-
 (use-package go-mode
   :config
   (progn

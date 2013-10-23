@@ -29,5 +29,14 @@
          (format "%s %s" (executable-find "open") (file-name-directory file)))
       (error "Buffer is not attached to any file."))))
 
+(defun toggle-fullscreen ()
+  "Toggle full screen"
+  (interactive)
+  (set-frame-parameter
+     nil 'fullscreen
+     (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
+
+(global-set-key (kbd "<s-S-return>") 'toggle-fullscreen)
+
 (use-package exec-path-from-shell
   :init (exec-path-from-shell-initialize))
