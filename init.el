@@ -26,27 +26,24 @@
 (use-package dired-x)
 
 (use-package ido
-  :init (ido-mode 1)
+  :init
+  (progn
+    (ido-mode 1)
+    (use-package ido-vertical-mode
+      :init (ido-vertical-mode 1))
+    (use-package flx-ido
+      :init (flx-ido-mode 1))
+    (use-package ido-ubiquitous)
+    (use-package smex
+      :init (smex-initialize)
+      :bind ("M-x" . smex)))
   :config
   (progn
-    (defun ido-enable-arrows ()
-      (define-key ido-completion-map [up] 'ido-prev-match)
-      (define-key ido-completion-map [down] 'ido-next-match))
-    (add-hook 'ido-setup-hook 'ido-enable-arrows)
-    (defun ido-disable-line-trucation () (set (make-local-variable 'truncate-lines) nil))
-    (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
     (setq ido-case-fold t)
-    (setq ido-everywhere t)
     (setq ido-enable-prefix nil)
-    (setq ido-enable-flex-matching t)
     (setq ido-create-new-buffer 'always)
     (setq ido-max-prospects 10)
-	(setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
     (add-to-list 'ido-ignore-files "\\.DS_Store")))
-
-(use-package smex
-  :init (smex-initialize)
-  :bind ("M-x" . smex))
 
 (use-package multiple-cursors
   :bind (("C->" . mc/mark-next-like-this)
