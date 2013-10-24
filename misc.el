@@ -91,7 +91,7 @@
 (set-face-attribute 'default nil :height 140)
 
 ;; Highlight symbol at point
-(add-hook 'find-file-hook 'idle-highlight-mode)
+;; (add-hook 'find-file-hook 'idle-highlight-mode)
 
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
