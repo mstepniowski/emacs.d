@@ -134,7 +134,15 @@
     (define-key comint-mode-map (kbd "<up>")
       'comint-previous-matching-input-from-input)
     (define-key comint-mode-map (kbd "<down>")
-      'comint-next-matching-input-from-input)))
+      'comint-next-matching-input-from-input)
+
+    ;; TODO: show breakpoints set via GUD
+    (setq pdb-path '/usr/lib/python2.7/pdb.py
+          gud-pdb-command-name (symbol-name pdb-path))
+    (defadvice pdb (before gud-query-cmdline activate)
+      "Provide a better default command line when called interactively."
+      (interactive
+       (list (gud-query-cmdline pdb-path (file-name-nondirectory buffer-file-name)))))))
 
 (use-package markdown-mode
   :mode (("\\.markdown$" . markdown-mode)
