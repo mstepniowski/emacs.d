@@ -120,6 +120,22 @@
     (defadvice forward-page (after forward-page-mbol activate)
       (move-beginning-of-line 1))))
 
+(use-package python
+  :config
+  (progn
+    (setq python-shell-interpreter "ipython"
+          python-shell-interpreter-args ""
+          python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+          python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+          python-shell-completion-setup-code "from IPython.core.completerlib import module_completion"
+          python-shell-completion-module-string-code "';'.join(module_completion('''%s'''))\n"
+          python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+
+    (define-key comint-mode-map (kbd "<up>")
+      'comint-previous-matching-input-from-input)
+    (define-key comint-mode-map (kbd "<down>")
+      'comint-next-matching-input-from-input)))
+
 (use-package markdown-mode
   :mode (("\\.markdown$" . markdown-mode)
          ("\\.md$" . markdown-mode)))
@@ -152,6 +168,7 @@
                                              try-complete-lisp-symbol-partially
                                              try-complete-lisp-symbol))
     (setq smart-tab-using-hippie-expand t)
+    (setq smart-tab-disabled-major-modes '(org-mode term-mode eshell-mode inferior-python-mode))
     (global-smart-tab-mode 1)))
 
 (use-package yaml-mode
