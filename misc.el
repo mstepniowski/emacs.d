@@ -107,6 +107,9 @@
 (setq gc-cons-threshold 50000000)
 (setq gc-cons-percentage 0.5)
 
+;; Scratch message
+(setq initial-scratch-message ";; Welcome, Master -- happy hacking\n\n")
+
 (setq-default display-buffer-reuse-frames t)
 (set-cursor-color "coral3")
 (setq enable-recursive-minibuffers t)
